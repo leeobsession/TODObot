@@ -1,0 +1,6 @@
+client-secret.json
+__pycache__
+.evn
+/env
+bd.py
+requirements.txt

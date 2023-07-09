@@ -11,6 +11,7 @@ import random
 from keyboard.for_add import start_bot
 from handlers.logic_catalog.logick import form_date, random_data
 from sql.bd_rand import get_home, save_random
+from sql.bd_task import save_task
 from handlers.random_catalog.random import UserState
 
 
@@ -29,7 +30,7 @@ async def dat_home(message: Message, state: FSMContext) -> None:
     data_rand = random_data(DATA_NOW)
     num = random.randrange(1, 17)
     task = await get_home(num)
-    await save_random(data_rand, task, message.chat.id)
+    await save_task(task, message.chat.id, data_rand)
     await message.reply(f'Ты крутой! Твоя задача {task}, добавлена на {data_rand}!', reply_markup=start_bot())
     await state.clear()
 
@@ -38,6 +39,6 @@ async def dat_sport(message: Message, state: FSMContext) -> None:
     data_rand = random_data(DATA_NOW)
     num = random.randrange(1, 17)
     task = await get_home(num)
-    await save_random(data_rand, task, message.chat.id)
+    await save_task(task, message.chat.id, data_rand)
     await message.reply(f'Ты крутой! Твоя задача {task}, добавлена на {data_rand}!', reply_markup=start_bot())
     await state.clear()

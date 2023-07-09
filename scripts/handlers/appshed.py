@@ -35,3 +35,13 @@ async def check_and_call(bot: Bot):
         else:
             await bot.send_message(chat.id == user, text = f"Привет! Запишешь что-нибудь сегодня?", reply_markup = start_bot())
 
+async def callback():
+    await scheduler.every().day.at("09:00").do(check_and_call())
+    while True:
+        await scheduler.run_pending()
+        await scheduler.start()
+        await asyncio.sleep(1)
+
+if __name__ == "__main__":
+    asyncio.run(callback())
+

@@ -3,7 +3,7 @@ name = "rememberbot"
 version = "0.1.0"
 description = "Telegram bot for save and create task."
 authors = ["leeobsession <lera03skor@gmail.com>"]
-repository = ""
+repository = "https://github.com/leeobsession/TODObot.git"
 readme = "README.md"
 classifiers = [
     "Programming Language :: Python :: 3.10"
@@ -11,9 +11,6 @@ classifiers = [
 
 [tool.poetry.dependencies]
 python = "^3.10"
-aiogram = "^3.0.0b8"
-aiomysql = "^0.2.0"
-shedule = "^1.2.0"
 
 [tool.poetry.group.dev.dependencies]
 flake8 = "^6.0.0"

@@ -4,7 +4,9 @@ from conf.bd import conn
 
 
 async def save_user(id_message, name):
-    sql = "INSERT INTO users (id_messag, user) VALUES (%s,%s)"
+    sql = """UPDATE users 
+    SET user = (%s)
+    WHERE id_messag = (%s)"""
     val = (id_message, name)
     cur = await conn()
     async with cur.cursor() as cursor:
@@ -13,18 +15,19 @@ async def save_user(id_message, name):
     cur.close()
 
 
-async def check_user():
-    sql = "SELECT id_messag FROM users"
+async def check_user(id_message):
+    sql = "SELECT id_messag FROM users WHERE id_messag = (%s)"
     cur = await conn()
     async with cur.cursor() as cursor:
-        await cursor.execute(sql)
+        await cursor.execute(sql, id_message)
         result = await cursor.fetchall()
-    cur.close()
-    lst = []
-    for x in result:
-        for y in x:
-            lst.append(y)
-    return lst
+        for id_message in result:
+            if id_message in result:
+                return True
+            else:
+                return False
+
+    
 
 
 async def get_name(id_message):

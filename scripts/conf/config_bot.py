@@ -11,9 +11,8 @@ from dotenv import get_variables
 from apscheduler.schedulers.asyncio import AsyncIOScheduler
 from handlers.appshed import check_and_call
 
-config = get_variables('./conf/.evn')
+config = get_variables('/home/lee_obsession/TODObot/scripts/conf/.evn')
 TOKEN = config['TOKEN']
-logging.basicConfig(level=logging.INFO)
 
 
 router = Router()
@@ -21,6 +20,7 @@ router = Router()
 
 async def configurat():
     bot = Bot(token=TOKEN)
+    logging.basicConfig(level=logging.INFO, filename='bot.log', format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
     dp = Dispatcher(storage=MemoryStorage(), fsm_strategy=FSMStrategy.USER_IN_CHAT)
     dp.include_routers(router, start.router, my_menu.router, chose_task.router)
     dp.include_routers(random.router, random_sport.router, random_all.router, random_home.router, random_hobby.router)
@@ -29,11 +29,6 @@ async def configurat():
     scheduler = AsyncIOScheduler()
     await bot.delete_webhook(drop_pending_updates=True)
     await dp.start_polling(bot, allowed_updates=dp.resolve_used_update_types())
-    await scheduler.every().day.at("09:00").do(check_and_call())
-    while True:
-        await scheduler.run_pending()
-        await scheduler.start()
-        await asyncio.sleep(1)
 
 
 if __name__ == "__main__":

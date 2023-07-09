@@ -1,0 +1,269 @@
+2023-07-09 23:32:30,128 - aiogram.dispatcher - INFO - Start polling
+2023-07-09 23:32:30,324 - aiogram.dispatcher - INFO - Run polling for bot @FirstLeeObot id=6087196605 - 'RememberBot'
+2023-07-09 23:35:26,366 - aiogram.event - INFO - Update id=680691140 is handled. Duration 3022 ms by bot id=6087196605
+2023-07-09 23:47:07,630 - aiogram.event - INFO - Update id=680691141 is handled. Duration 3301 ms by bot id=6087196605
+2023-07-09 23:47:13,816 - aiogram.event - INFO - Update id=680691142 is not handled. Duration 813 ms by bot id=6087196605
+2023-07-09 23:47:13,816 - aiogram.event - ERROR - Cause exception while process update id=680691142 by bot id=6087196605
+IntegrityError: (1062, "Duplicate entry '2147483647' for key 'users.PRIMARY'")
+Traceback (most recent call last):
+  File "/home/lee_obsession/TODObot/env/lib/python3.10/site-packages/aiogram/dispatcher/dispatcher.py", line 298, in _process_update
+    response = await self.feed_update(bot, update, **kwargs)
+  File "/home/lee_obsession/TODObot/env/lib/python3.10/site-packages/aiogram/dispatcher/dispatcher.py", line 147, in feed_update
+    response = await self.update.wrap_outer_middleware(
+  File "/home/lee_obsession/TODObot/env/lib/python3.10/site-packages/aiogram/dispatcher/middlewares/error.py", line 25, in __call__
+    return await handler(event, data)
+  File "/home/lee_obsession/TODObot/env/lib/python3.10/site-packages/aiogram/dispatcher/middlewares/user_context.py", line 28, in __call__
+    return await handler(event, data)
+  File "/home/lee_obsession/TODObot/env/lib/python3.10/site-packages/aiogram/fsm/middleware.py", line 39, in __call__
+    return await handler(event, data)
+  File "/home/lee_obsession/TODObot/env/lib/python3.10/site-packages/aiogram/dispatcher/event/telegram.py", line 124, in trigger
+    return await wrapped_inner(event, kwargs)
+  File "/home/lee_obsession/TODObot/env/lib/python3.10/site-packages/aiogram/dispatcher/event/handler.py", line 42, in call
+    return await wrapped()
+  File "/home/lee_obsession/TODObot/env/lib/python3.10/site-packages/aiogram/dispatcher/dispatcher.py", line 265, in _listen_update
+    return await self.propagate_event(update_type=update_type, event=event, **kwargs)
+  File "/home/lee_obsession/TODObot/env/lib/python3.10/site-packages/aiogram/dispatcher/router.py", line 116, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+  File "/home/lee_obsession/TODObot/env/lib/python3.10/site-packages/aiogram/dispatcher/router.py", line 111, in _wrapped
+    return await self._propagate_event(
+  File "/home/lee_obsession/TODObot/env/lib/python3.10/site-packages/aiogram/dispatcher/router.py", line 135, in _propagate_event
+    response = await router.propagate_event(update_type=update_type, event=event, **kwargs)
+  File "/home/lee_obsession/TODObot/env/lib/python3.10/site-packages/aiogram/dispatcher/router.py", line 116, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+  File "/home/lee_obsession/TODObot/env/lib/python3.10/site-packages/aiogram/dispatcher/router.py", line 111, in _wrapped
+    return await self._propagate_event(
+  File "/home/lee_obsession/TODObot/env/lib/python3.10/site-packages/aiogram/dispatcher/router.py", line 128, in _propagate_event
+    response = await observer.trigger(event, **kwargs)
+  File "/home/lee_obsession/TODObot/env/lib/python3.10/site-packages/aiogram/dispatcher/event/telegram.py", line 124, in trigger
+    return await wrapped_inner(event, kwargs)
+  File "/home/lee_obsession/TODObot/env/lib/python3.10/site-packages/aiogram/dispatcher/event/handler.py", line 42, in call
+    return await wrapped()
+  File "/home/lee_obsession/TODObot/scripts/handlers/start.py", line 37, in process_name
+    await save_user(chat_id, name)
+  File "/home/lee_obsession/TODObot/scripts/sql/bd_user.py", line 11, in save_user
+    await cursor.execute(sql, val)
+  File "/home/lee_obsession/TODObot/env/lib/python3.10/site-packages/aiomysql/cursors.py", line 239, in execute
+    await self._query(query)
+  File "/home/lee_obsession/TODObot/env/lib/python3.10/site-packages/aiomysql/cursors.py", line 457, in _query
+    await conn.query(q)
+  File "/home/lee_obsession/TODObot/env/lib/python3.10/site-packages/aiomysql/connection.py", line 469, in query
+    await self._read_query_result(unbuffered=unbuffered)
+  File "/home/lee_obsession/TODObot/env/lib/python3.10/site-packages/aiomysql/connection.py", line 683, in _read_query_result
+    await result.read()
+  File "/home/lee_obsession/TODObot/env/lib/python3.10/site-packages/aiomysql/connection.py", line 1164, in read
+    first_packet = await self.connection._read_packet()
+  File "/home/lee_obsession/TODObot/env/lib/python3.10/site-packages/aiomysql/connection.py", line 652, in _read_packet
+    packet.raise_for_error()
+  File "/home/lee_obsession/TODObot/env/lib/python3.10/site-packages/pymysql/protocol.py", line 221, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "/home/lee_obsession/TODObot/env/lib/python3.10/site-packages/pymysql/err.py", line 143, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.IntegrityError: (1062, "Duplicate entry '2147483647' for key 'users.PRIMARY'")
+2023-07-09 23:48:07,167 - aiogram.event - INFO - Update id=680691143 is not handled. Duration 853 ms by bot id=6087196605
+2023-07-09 23:48:07,167 - aiogram.event - ERROR - Cause exception while process update id=680691143 by bot id=6087196605
+IntegrityError: (1062, "Duplicate entry '2147483647' for key 'users.PRIMARY'")
+Traceback (most recent call last):
+  File "/home/lee_obsession/TODObot/env/lib/python3.10/site-packages/aiogram/dispatcher/dispatcher.py", line 298, in _process_update
+    response = await self.feed_update(bot, update, **kwargs)
+  File "/home/lee_obsession/TODObot/env/lib/python3.10/site-packages/aiogram/dispatcher/dispatcher.py", line 147, in feed_update
+    response = await self.update.wrap_outer_middleware(
+  File "/home/lee_obsession/TODObot/env/lib/python3.10/site-packages/aiogram/dispatcher/middlewares/error.py", line 25, in __call__
+    return await handler(event, data)
+  File "/home/lee_obsession/TODObot/env/lib/python3.10/site-packages/aiogram/dispatcher/middlewares/user_context.py", line 28, in __call__
+    return await handler(event, data)
+  File "/home/lee_obsession/TODObot/env/lib/python3.10/site-packages/aiogram/fsm/middleware.py", line 39, in __call__
+    return await handler(event, data)
+  File "/home/lee_obsession/TODObot/env/lib/python3.10/site-packages/aiogram/dispatcher/event/telegram.py", line 124, in trigger
+    return await wrapped_inner(event, kwargs)
+  File "/home/lee_obsession/TODObot/env/lib/python3.10/site-packages/aiogram/dispatcher/event/handler.py", line 42, in call
+    return await wrapped()
+  File "/home/lee_obsession/TODObot/env/lib/python3.10/site-packages/aiogram/dispatcher/dispatcher.py", line 265, in _listen_update
+    return await self.propagate_event(update_type=update_type, event=event, **kwargs)
+  File "/home/lee_obsession/TODObot/env/lib/python3.10/site-packages/aiogram/dispatcher/router.py", line 116, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+  File "/home/lee_obsession/TODObot/env/lib/python3.10/site-packages/aiogram/dispatcher/router.py", line 111, in _wrapped
+    return await self._propagate_event(
+  File "/home/lee_obsession/TODObot/env/lib/python3.10/site-packages/aiogram/dispatcher/router.py", line 135, in _propagate_event
+    response = await router.propagate_event(update_type=update_type, event=event, **kwargs)
+  File "/home/lee_obsession/TODObot/env/lib/python3.10/site-packages/aiogram/dispatcher/router.py", line 116, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+  File "/home/lee_obsession/TODObot/env/lib/python3.10/site-packages/aiogram/dispatcher/router.py", line 111, in _wrapped
+    return await self._propagate_event(
+  File "/home/lee_obsession/TODObot/env/lib/python3.10/site-packages/aiogram/dispatcher/router.py", line 128, in _propagate_event
+    response = await observer.trigger(event, **kwargs)
+  File "/home/lee_obsession/TODObot/env/lib/python3.10/site-packages/aiogram/dispatcher/event/telegram.py", line 124, in trigger
+    return await wrapped_inner(event, kwargs)
+  File "/home/lee_obsession/TODObot/env/lib/python3.10/site-packages/aiogram/dispatcher/event/handler.py", line 42, in call
+    return await wrapped()
+  File "/home/lee_obsession/TODObot/scripts/handlers/start.py", line 37, in process_name
+    await save_user(chat_id, name)
+  File "/home/lee_obsession/TODObot/scripts/sql/bd_user.py", line 11, in save_user
+    await cursor.execute(sql, val)
+  File "/home/lee_obsession/TODObot/env/lib/python3.10/site-packages/aiomysql/cursors.py", line 239, in execute
+    await self._query(query)
+  File "/home/lee_obsession/TODObot/env/lib/python3.10/site-packages/aiomysql/cursors.py", line 457, in _query
+    await conn.query(q)
+  File "/home/lee_obsession/TODObot/env/lib/python3.10/site-packages/aiomysql/connection.py", line 469, in query
+    await self._read_query_result(unbuffered=unbuffered)
+  File "/home/lee_obsession/TODObot/env/lib/python3.10/site-packages/aiomysql/connection.py", line 683, in _read_query_result
+    await result.read()
+  File "/home/lee_obsession/TODObot/env/lib/python3.10/site-packages/aiomysql/connection.py", line 1164, in read
+    first_packet = await self.connection._read_packet()
+  File "/home/lee_obsession/TODObot/env/lib/python3.10/site-packages/aiomysql/connection.py", line 652, in _read_packet
+    packet.raise_for_error()
+  File "/home/lee_obsession/TODObot/env/lib/python3.10/site-packages/pymysql/protocol.py", line 221, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "/home/lee_obsession/TODObot/env/lib/python3.10/site-packages/pymysql/err.py", line 143, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.IntegrityError: (1062, "Duplicate entry '2147483647' for key 'users.PRIMARY'")
+2023-07-09 23:49:30,506 - aiogram.event - INFO - Update id=680691144 is not handled. Duration 665 ms by bot id=6087196605
+2023-07-09 23:49:30,506 - aiogram.event - ERROR - Cause exception while process update id=680691144 by bot id=6087196605
+IntegrityError: (1062, "Duplicate entry '2147483647' for key 'users.PRIMARY'")
+Traceback (most recent call last):
+  File "/home/lee_obsession/TODObot/env/lib/python3.10/site-packages/aiogram/dispatcher/dispatcher.py", line 298, in _process_update
+    response = await self.feed_update(bot, update, **kwargs)
+  File "/home/lee_obsession/TODObot/env/lib/python3.10/site-packages/aiogram/dispatcher/dispatcher.py", line 147, in feed_update
+    response = await self.update.wrap_outer_middleware(
+  File "/home/lee_obsession/TODObot/env/lib/python3.10/site-packages/aiogram/dispatcher/middlewares/error.py", line 25, in __call__
+    return await handler(event, data)
+  File "/home/lee_obsession/TODObot/env/lib/python3.10/site-packages/aiogram/dispatcher/middlewares/user_context.py", line 28, in __call__
+    return await handler(event, data)
+  File "/home/lee_obsession/TODObot/env/lib/python3.10/site-packages/aiogram/fsm/middleware.py", line 39, in __call__
+    return await handler(event, data)
+  File "/home/lee_obsession/TODObot/env/lib/python3.10/site-packages/aiogram/dispatcher/event/telegram.py", line 124, in trigger
+    return await wrapped_inner(event, kwargs)
+  File "/home/lee_obsession/TODObot/env/lib/python3.10/site-packages/aiogram/dispatcher/event/handler.py", line 42, in call
+    return await wrapped()
+  File "/home/lee_obsession/TODObot/env/lib/python3.10/site-packages/aiogram/dispatcher/dispatcher.py", line 265, in _listen_update
+    return await self.propagate_event(update_type=update_type, event=event, **kwargs)
+  File "/home/lee_obsession/TODObot/env/lib/python3.10/site-packages/aiogram/dispatcher/router.py", line 116, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+  File "/home/lee_obsession/TODObot/env/lib/python3.10/site-packages/aiogram/dispatcher/router.py", line 111, in _wrapped
+    return await self._propagate_event(
+  File "/home/lee_obsession/TODObot/env/lib/python3.10/site-packages/aiogram/dispatcher/router.py", line 135, in _propagate_event
+    response = await router.propagate_event(update_type=update_type, event=event, **kwargs)
+  File "/home/lee_obsession/TODObot/env/lib/python3.10/site-packages/aiogram/dispatcher/router.py", line 116, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+  File "/home/lee_obsession/TODObot/env/lib/python3.10/site-packages/aiogram/dispatcher/router.py", line 111, in _wrapped
+    return await self._propagate_event(
+  File "/home/lee_obsession/TODObot/env/lib/python3.10/site-packages/aiogram/dispatcher/router.py", line 128, in _propagate_event
+    response = await observer.trigger(event, **kwargs)
+  File "/home/lee_obsession/TODObot/env/lib/python3.10/site-packages/aiogram/dispatcher/event/telegram.py", line 124, in trigger
+    return await wrapped_inner(event, kwargs)
+  File "/home/lee_obsession/TODObot/env/lib/python3.10/site-packages/aiogram/dispatcher/event/handler.py", line 42, in call
+    return await wrapped()
+  File "/home/lee_obsession/TODObot/scripts/handlers/start.py", line 37, in process_name
+    await save_user(chat_id, name)
+  File "/home/lee_obsession/TODObot/scripts/sql/bd_user.py", line 11, in save_user
+    await cursor.execute(sql, val)
+  File "/home/lee_obsession/TODObot/env/lib/python3.10/site-packages/aiomysql/cursors.py", line 239, in execute
+    await self._query(query)
+  File "/home/lee_obsession/TODObot/env/lib/python3.10/site-packages/aiomysql/cursors.py", line 457, in _query
+    await conn.query(q)
+  File "/home/lee_obsession/TODObot/env/lib/python3.10/site-packages/aiomysql/connection.py", line 469, in query
+    await self._read_query_result(unbuffered=unbuffered)
+  File "/home/lee_obsession/TODObot/env/lib/python3.10/site-packages/aiomysql/connection.py", line 683, in _read_query_result
+    await result.read()
+  File "/home/lee_obsession/TODObot/env/lib/python3.10/site-packages/aiomysql/connection.py", line 1164, in read
+    first_packet = await self.connection._read_packet()
+  File "/home/lee_obsession/TODObot/env/lib/python3.10/site-packages/aiomysql/connection.py", line 652, in _read_packet
+    packet.raise_for_error()
+  File "/home/lee_obsession/TODObot/env/lib/python3.10/site-packages/pymysql/protocol.py", line 221, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "/home/lee_obsession/TODObot/env/lib/python3.10/site-packages/pymysql/err.py", line 143, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.IntegrityError: (1062, "Duplicate entry '2147483647' for key 'users.PRIMARY'")
+2023-07-10 00:00:11,582 - aiogram.dispatcher - INFO - Start polling
+2023-07-10 00:00:11,744 - aiogram.dispatcher - INFO - Run polling for bot @FirstLeeObot id=6087196605 - 'RememberBot'
+2023-07-10 00:00:28,590 - aiogram.event - INFO - Update id=680691145 is not handled. Duration 679 ms by bot id=6087196605
+2023-07-10 00:00:28,591 - aiogram.event - ERROR - Cause exception while process update id=680691145 by bot id=6087196605
+TypeError: sequence item 0: expected str instance, int found
+Traceback (most recent call last):
+  File "/home/lee_obsession/TODObot/env/lib/python3.10/site-packages/aiogram/dispatcher/dispatcher.py", line 298, in _process_update
+    response = await self.feed_update(bot, update, **kwargs)
+  File "/home/lee_obsession/TODObot/env/lib/python3.10/site-packages/aiogram/dispatcher/dispatcher.py", line 147, in feed_update
+    response = await self.update.wrap_outer_middleware(
+  File "/home/lee_obsession/TODObot/env/lib/python3.10/site-packages/aiogram/dispatcher/middlewares/error.py", line 25, in __call__
+    return await handler(event, data)
+  File "/home/lee_obsession/TODObot/env/lib/python3.10/site-packages/aiogram/dispatcher/middlewares/user_context.py", line 28, in __call__
+    return await handler(event, data)
+  File "/home/lee_obsession/TODObot/env/lib/python3.10/site-packages/aiogram/fsm/middleware.py", line 39, in __call__
+    return await handler(event, data)
+  File "/home/lee_obsession/TODObot/env/lib/python3.10/site-packages/aiogram/dispatcher/event/telegram.py", line 124, in trigger
+    return await wrapped_inner(event, kwargs)
+  File "/home/lee_obsession/TODObot/env/lib/python3.10/site-packages/aiogram/dispatcher/event/handler.py", line 42, in call
+    return await wrapped()
+  File "/home/lee_obsession/TODObot/env/lib/python3.10/site-packages/aiogram/dispatcher/dispatcher.py", line 265, in _listen_update
+    return await self.propagate_event(update_type=update_type, event=event, **kwargs)
+  File "/home/lee_obsession/TODObot/env/lib/python3.10/site-packages/aiogram/dispatcher/router.py", line 116, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+  File "/home/lee_obsession/TODObot/env/lib/python3.10/site-packages/aiogram/dispatcher/router.py", line 111, in _wrapped
+    return await self._propagate_event(
+  File "/home/lee_obsession/TODObot/env/lib/python3.10/site-packages/aiogram/dispatcher/router.py", line 135, in _propagate_event
+    response = await router.propagate_event(update_type=update_type, event=event, **kwargs)
+  File "/home/lee_obsession/TODObot/env/lib/python3.10/site-packages/aiogram/dispatcher/router.py", line 116, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+  File "/home/lee_obsession/TODObot/env/lib/python3.10/site-packages/aiogram/dispatcher/router.py", line 111, in _wrapped
+    return await self._propagate_event(
+  File "/home/lee_obsession/TODObot/env/lib/python3.10/site-packages/aiogram/dispatcher/router.py", line 128, in _propagate_event
+    response = await observer.trigger(event, **kwargs)
+  File "/home/lee_obsession/TODObot/env/lib/python3.10/site-packages/aiogram/dispatcher/event/telegram.py", line 124, in trigger
+    return await wrapped_inner(event, kwargs)
+  File "/home/lee_obsession/TODObot/env/lib/python3.10/site-packages/aiogram/dispatcher/event/handler.py", line 42, in call
+    return await wrapped()
+  File "/home/lee_obsession/TODObot/scripts/handlers/start.py", line 24, in cmd_start
+    users = await check_user(chat_id)
+  File "/home/lee_obsession/TODObot/scripts/sql/bd_user.py", line 25, in check_user
+    r = ''.join(elem)
+TypeError: sequence item 0: expected str instance, int found
+2023-07-10 00:07:05,926 - aiogram.dispatcher - INFO - Start polling
+2023-07-10 00:07:06,183 - aiogram.dispatcher - INFO - Run polling for bot @FirstLeeObot id=6087196605 - 'RememberBot'
+2023-07-10 00:07:14,311 - aiogram.event - INFO - Update id=680691148 is handled. Duration 2680 ms by bot id=6087196605
+2023-07-10 00:07:49,486 - aiogram.event - INFO - Update id=680691149 is handled. Duration 2077 ms by bot id=6087196605
+2023-07-10 00:07:54,160 - aiogram.event - INFO - Update id=680691150 is handled. Duration 1229 ms by bot id=6087196605
+2023-07-10 00:07:59,748 - aiogram.event - INFO - Update id=680691151 is handled. Duration 1768 ms by bot id=6087196605
+2023-07-10 00:08:14,237 - aiogram.event - INFO - Update id=680691152 is handled. Duration 1211 ms by bot id=6087196605
+2023-07-10 00:10:47,936 - aiogram.event - INFO - Update id=680691154 is handled. Duration 1666 ms by bot id=6087196605
+2023-07-10 00:10:55,103 - aiogram.event - INFO - Update id=680691155 is handled. Duration 1711 ms by bot id=6087196605
+2023-07-10 00:11:00,098 - aiogram.event - INFO - Update id=680691156 is handled. Duration 1199 ms by bot id=6087196605
+2023-07-10 00:11:29,183 - aiogram.event - INFO - Update id=680691157 is handled. Duration 1579 ms by bot id=6087196605
+2023-07-10 00:11:36,835 - aiogram.event - INFO - Update id=680691158 is handled. Duration 1148 ms by bot id=6087196605
+2023-07-10 00:12:33,542 - aiogram.event - INFO - Update id=680691159 is handled. Duration 1338 ms by bot id=6087196605
+2023-07-10 00:18:43,719 - aiogram.dispatcher - INFO - Start polling
+2023-07-10 00:18:43,896 - aiogram.dispatcher - INFO - Run polling for bot @FirstLeeObot id=6087196605 - 'RememberBot'
+2023-07-10 00:20:21,113 - aiogram.event - INFO - Update id=680691162 is handled. Duration 1694 ms by bot id=6087196605
+2023-07-10 00:20:26,708 - aiogram.event - INFO - Update id=680691163 is handled. Duration 1477 ms by bot id=6087196605
+2023-07-10 00:20:27,447 - aiogram.event - INFO - Update id=680691164 is handled. Duration 2034 ms by bot id=6087196605
+2023-07-10 00:20:28,961 - aiogram.event - INFO - Update id=680691165 is handled. Duration 225 ms by bot id=6087196605
+2023-07-10 00:20:30,373 - aiogram.event - INFO - Update id=680691166 is handled. Duration 272 ms by bot id=6087196605
+2023-07-10 00:20:33,221 - aiogram.event - INFO - Update id=680691167 is handled. Duration 249 ms by bot id=6087196605
+2023-07-10 00:20:34,241 - aiogram.event - INFO - Update id=680691168 is handled. Duration 199 ms by bot id=6087196605
+2023-07-10 00:20:36,326 - aiogram.event - INFO - Update id=680691169 is not handled. Duration 1222 ms by bot id=6087196605
+2023-07-10 00:20:36,327 - aiogram.event - ERROR - Cause exception while process update id=680691169 by bot id=6087196605
+ValueError: <Token var=<ContextVar name='instance_Bot' at 0x7f22f5dabdd0> at 0x7f22f4ca32c0> was created in a different Context
+Traceback (most recent call last):
+  File "/home/lee_obsession/TODObot/env/lib/python3.10/site-packages/aiogram/dispatcher/dispatcher.py", line 147, in feed_update
+    response = await self.update.wrap_outer_middleware(
+GeneratorExit
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/lee_obsession/TODObot/env/lib/python3.10/site-packages/aiogram/dispatcher/dispatcher.py", line 298, in _process_update
+    response = await self.feed_update(bot, update, **kwargs)
+  File "/home/lee_obsession/TODObot/env/lib/python3.10/site-packages/aiogram/dispatcher/dispatcher.py", line 168, in feed_update
+    Bot.reset_current(token)
+  File "/home/lee_obsession/TODObot/env/lib/python3.10/site-packages/aiogram/utils/mixins.py", line 95, in reset_current
+    cls.__context_instance.reset(token)
+ValueError: <Token var=<ContextVar name='instance_Bot' at 0x7f22f5dabdd0> at 0x7f22f4ca32c0> was created in a different Context
+2023-07-10 00:20:36,329 - asyncio - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-39' coro=<Dispatcher._process_update() done, defined at /home/lee_obsession/TODObot/env/lib/python3.10/site-packages/aiogram/dispatcher/dispatcher.py:285> wait_for=<Future pending cb=[Task.task_wakeup()]>>
+2023-07-10 00:20:36,591 - aiogram.event - INFO - Update id=680691170 is handled. Duration 267 ms by bot id=6087196605
+2023-07-10 00:20:43,416 - aiogram.event - INFO - Update id=680691171 is handled. Duration 1424 ms by bot id=6087196605
+2023-07-10 00:20:50,408 - aiogram.event - INFO - Update id=680691172 is handled. Duration 1007 ms by bot id=6087196605
+2023-07-10 00:21:19,010 - aiogram.event - INFO - Update id=680691173 is handled. Duration 2861 ms by bot id=6087196605
+2023-07-10 00:21:22,385 - aiogram.event - INFO - Update id=680691174 is handled. Duration 208 ms by bot id=6087196605
+2023-07-10 00:21:25,334 - aiogram.event - INFO - Update id=680691175 is handled. Duration 885 ms by bot id=6087196605
+2023-07-10 00:21:26,584 - aiogram.event - INFO - Update id=680691176 is handled. Duration 230 ms by bot id=6087196605
+2023-07-10 00:21:29,247 - aiogram.event - INFO - Update id=680691177 is handled. Duration 206 ms by bot id=6087196605
+2023-07-10 00:21:33,038 - aiogram.event - INFO - Update id=680691178 is handled. Duration 2036 ms by bot id=6087196605

@@ -6,7 +6,7 @@ from aiogram.fsm.state import State, StatesGroup
 from aiogram.types import Message, CallbackQuery, ReplyKeyboardRemove
 from conf import config_bot
 
-
+from handlers.start import StartForm
 from keyboard.for_add import add_date, category_task
 from keyboard.for_show import see_task
 
@@ -14,12 +14,12 @@ from keyboard.for_show import see_task
 router = Router()
 
 
-
 class Form(StatesGroup):
     data_task = State()
     data_random = State()
     data_show = State()
     task = State()
+
 
 @router.message(F.text=="Добавить свою задачу. \U0000270D")
 async def add_task(message: Message, state: FSMContext) -> None:

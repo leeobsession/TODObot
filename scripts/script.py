@@ -1,6 +1,7 @@
 import asyncio
 from conf.config_bot import configurat
 
+
 async def main():
     await configurat()
 

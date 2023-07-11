@@ -4,3 +4,4 @@ __pycache__
 /env
 bd.py
 requirements.txt
+bot.log

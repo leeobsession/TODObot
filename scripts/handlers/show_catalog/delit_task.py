@@ -31,7 +31,7 @@ async def today_delit(message: Message, state: FSMContext) -> None:
         kb.add(types.KeyboardButton(text=''.join(i)))
     kb.button(text="Вернуться в меню")
     kb.adjust(1)
-    await message.reply('Выбери задачу которую хотел бы удалить. ОСТОРОЖНО! Востановлению не подлежит!', reply_markup=kb.as_markup(resize_keyboard=True))
+    await message.reply('Выбери задачу которую хотел бы удалить. ОСТОРОЖНО\U00002757 Востановлению не подлежит\U00002757', reply_markup=kb.as_markup(resize_keyboard=True))
     await state.set_state(UserState.del_today)
 
 
@@ -44,7 +44,7 @@ async def today_delit(message: Message, state: FSMContext) -> None:
         kb.add(types.KeyboardButton(text=''.join(i)))
     kb.button(text="Вернуться в меню")
     kb.adjust(1)
-    await message.reply('Выбери задачу которую хотел бы удалить. ОСТОРОЖНО! Востановлению не подлежит!', reply_markup=kb.as_markup(resize_keyboard=True))
+    await message.reply('Выбери задачу которую хотел бы удалить. ОСТОРОЖНО\U00002757 Востановлению не подлежит\U00002757', reply_markup=kb.as_markup(resize_keyboard=True))
     await state.set_state(UserState.del_tomorrow)
 
 @router.message(UserState.task_all, F.text == "Редактировать задачи.")
@@ -55,7 +55,7 @@ async def today_delit(message: Message, state: FSMContext) -> None:
         kb.add(types.KeyboardButton(text=''.join(i)))
     kb.button(text="Вернуться в меню")
     kb.adjust(1)
-    await message.reply('Выбери задачу которую хотел бы удалить. ОСТОРОЖНО! Востановлению не подлежит!', reply_markup=kb.as_markup(resize_keyboard=True))
+    await message.reply('Выбери задачу которую хотел бы удалить. ОСТОРОЖНО\U00002757 Востановлению не подлежит\U00002757', reply_markup=kb.as_markup(resize_keyboard=True))
     await state.set_state(UserState.del_all)
 
 @router.message(UserState.task_user, F.text == "Редактировать задачи.")
@@ -68,5 +68,5 @@ async def today_delit(message: Message, state: FSMContext) -> None:
         kb.add(types.KeyboardButton(text=''.join(i)))
     kb.button(text="Вернуться в меню")
     kb.adjust(1)
-    await message.reply('Выбери задачу которую хотел бы удалить. ОСТОРОЖНО! Востановлению не подлежит!', reply_markup=kb.as_markup(resize_keyboard=True))
+    await message.reply('Выбери задачу которую хотел бы удалить. ОСТОРОЖНО\U00002757 Востановлению не подлежит\U00002757', reply_markup=kb.as_markup(resize_keyboard=True))
     await state.set_state(UserState.dell_task_user)

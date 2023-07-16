@@ -11,8 +11,9 @@ async def check_task(date, id_message):
         await cursor.execute(sql, val)
         result = await cursor.fetchall()
     cur.close()
-    former = '\n\n'.join('      '.join(map(str, l)) for l in result)
+    former = '\n\n'.join('  \U000026AB  '.join(map(str, l)) for l in result)
     return former
+
 
 async def check_all_task(id_message):
     sql = "SELECT Date_task, task FROM tasks WHERE user_id = (%s)"
@@ -21,8 +22,9 @@ async def check_all_task(id_message):
         await cursor.execute(sql, id_message)
         result = await cursor.fetchall()
     cur.close()
-    former = '\n\n'.join('      '.join(map(str, l)) for l in result)
+    former = '\n\n'.join('  \U000026AB  '.join(map(str, l)) for l in result)
     return former
+
 
 async def key_day_task(date, id_message):
     sql = "SELECT task FROM tasks WHERE Date_task = (%s) AND user_id = (%s) "
@@ -38,6 +40,7 @@ async def key_day_task(date, id_message):
             lst.append(y)
     return lst
 
+
 async def key_all_task(id_message):
     sql = "SELECT task FROM tasks WHERE user_id = (%s) "
     cur = await conn()
@@ -50,3 +53,4 @@ async def key_all_task(id_message):
         for y in x:
             lst.append(y)
     return lst
+

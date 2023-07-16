@@ -19,3 +19,10 @@ def random_data(data):
     rand_num = random.randrange(0, 30)
     new_date = data.today() + timedelta(days=rand_num)
     return new_date
+
+
+def format_task(list_task):
+    res = ''
+    for elem in list_task:
+        res = res + "\U000026AB" + "  " + elem + "\n\n"
+    return res

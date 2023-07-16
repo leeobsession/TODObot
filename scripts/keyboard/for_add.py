@@ -1,5 +1,5 @@
-from aiogram.types import ReplyKeyboardMarkup
-from aiogram.utils.keyboard import ReplyKeyboardBuilder
+from aiogram.types import ReplyKeyboardMarkup, InlineKeyboardButton
+from aiogram.utils.keyboard import ReplyKeyboardBuilder, InlineKeyboardBuilder
 
 
 def start_bot() -> ReplyKeyboardMarkup:
@@ -7,8 +7,9 @@ def start_bot() -> ReplyKeyboardMarkup:
     kb.button(text="Добавить свою задачу. \U0000270D")
     kb.button(text="Добавить рандомную задачу \U0001F939")
     kb.button(text="Просмотр задач \U0001F440")
+    kb.button(text="Посмотреть гороскоп на сегодня \U00002721")
     kb.adjust(1)
-    return kb.as_markup(resize_keyboard=True, one_time_keyboard=True, input_field_placeholder="Добавь или посмотри свои задачи")
+    return kb.as_markup(resize_keyboard=True, one_time_keyboard=True)
 
 
 def add_date() -> ReplyKeyboardMarkup:
@@ -29,3 +30,21 @@ def category_task() -> ReplyKeyboardMarkup:
     kb.button(text="Вернуться в меню")
     kb.adjust(2)
     return kb.as_markup(resize_keyboard=True, one_time_keyboard=True)
+
+def get_zodiac_keyboard():
+    keyboard_builder = InlineKeyboardBuilder()
+    keyboard_builder.button(text='Овен', callback_data='aries')
+    keyboard_builder.button(text='Телец', callback_data='taurus')
+    keyboard_builder.button(text='Близнецы', callback_data='gemini')
+    keyboard_builder.button(text='Рак', callback_data='cancer')
+    keyboard_builder.button(text='Лев', callback_data='leo')
+    keyboard_builder.button(text='Дева', callback_data='virgo')
+    keyboard_builder.button(text='Весы', callback_data='libra')
+    keyboard_builder.button(text='Скорпион', callback_data='scorpio')
+    keyboard_builder.button(text='Стрелец', callback_data='sagittarius')
+    keyboard_builder.button(text='Козерог', callback_data='capricorn')
+    keyboard_builder.button(text='Водолей', callback_data='aquarius')
+    keyboard_builder.button(text='Рыбы', callback_data='pisces')
+    keyboard_builder.adjust(3)
+    return keyboard_builder.as_markup()
+    

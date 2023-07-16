@@ -45,7 +45,7 @@ async def add_today(message: Message, state: FSMContext) -> None:
     date_task = DATA_NOW
     await state.update_data(text=date_task)
     res = await check_task(date_task, message.chat.id)
-    await message.reply(f'''Отправляю тебе задачи на сегодня!
+    await message.reply(f'''Отправляю тебе задачи на сегодня! \U00002705!
 
 {res}''', reply_markup=clear_task())
     await state.set_state(UserState.task_today)
@@ -56,7 +56,7 @@ async def add_today(message: Message, state: FSMContext) -> None:
     date_task = DATA_NOW
     await state.update_data(text=date_task)
     res = await check_task(date_task, message.chat.id)
-    await message.reply(f'''Отправляю тебе задачи на завтра!
+    await message.reply(f'''Отправляю тебе задачи на завтра! \U00002705!
 
 {res}''', reply_markup=clear_task())
     await state.set_state(UserState.task_tomorrow)
@@ -65,7 +65,7 @@ async def add_today(message: Message, state: FSMContext) -> None:
 @router.message(Form.data_show, F.text == "Показать все задачи.")
 async def add_today(message: Message, state: FSMContext) -> None:
     res = await check_all_task(message.chat.id)
-    await message.reply(f'''Отправляю все твои задачи! 
+    await message.reply(f'''Отправляю все твои задачи! \U00002705!
 
 {res}''', reply_markup=clear_task())
     await state.set_state(UserState.task_all)
@@ -76,7 +76,7 @@ async def get_task(message: Message, state: FSMContext) -> None:
     data_for_show = form_date(message.text)
     res = await check_task(data_for_show, message.chat.id)
     await state.update_data(text=data_for_show)
-    await message.reply(f'''Отправляю тебе задачи на {data_for_show}!
+    await message.reply(f'''Отправляю тебе задачи на {data_for_show} \U00002705!
 
 {res}''', reply_markup=clear_task())
     await state.set_state(UserState.task_user)

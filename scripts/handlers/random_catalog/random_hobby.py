@@ -12,7 +12,7 @@ from keyboard.for_add import start_bot
 from handlers.logic_catalog.logick import form_date, random_data
 from sql.bd_rand import get_hobby
 from handlers.random_catalog.random import UserState
-from sql.bd_task import save_task, save_random
+from sql.bd_user import save_task, save_random
 
 router = Router()
 
@@ -26,7 +26,7 @@ async def dat_hobby(message: Message, state: FSMContext) -> None:
     num = random.randrange(1, 17)
     task = await get_hobby(num)
     await save_random(task, data_rand, message.chat.id)
-    await message.reply(f'Ты крутой! Твоя задача {task}, добавлена на {data_rand}!', reply_markup=start_bot())
+    await message.reply(f'Ты крутой! Твоя задача \U000026AB {task} \U000026AB, добавлена на {data_rand}\U00002714', reply_markup=start_bot())
     await state.clear()
 
 @router.message(UserState.hobby_task)
@@ -35,5 +35,5 @@ async def dat_sport(message: Message, state: FSMContext) -> None:
     num = random.randrange(1, 17)
     task = await get_hobby(num)
     await save_random(task, data_rand, message.chat.id)
-    await message.reply(f'Ты крутой! Твоя задача {task}, добавлена на {data_rand}!', reply_markup=start_bot())
+    await message.reply(f'Ты крутой! Твоя задача \U000026AB {task} \U000026AB, добавлена на {data_rand}\U00002714', reply_markup=start_bot())
     await state.clear()

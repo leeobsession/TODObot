@@ -18,7 +18,6 @@ class Form(StatesGroup):
     data_task = State()
     data_random = State()
     data_show = State()
-    horoscope_show = State()
     task = State()
 
 
@@ -38,6 +37,7 @@ async def chose_random(message: Message, state: FSMContext) -> None:
 async def add_task(message: Message, state: FSMContext) -> None:
     await message.reply("Что бы посмотреть задачи на определенный день просто укажи дату в формате \U000025AA dd.mm.YYYY \U000025AA", reply_markup=see_task())
     await state.set_state(Form.data_show)
+
 
 @router.message(F.text=='Посмотреть гороскоп на сегодня \U00002721')
 async def add_task(message: Message, state: FSMContext) -> None:

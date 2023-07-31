@@ -4,7 +4,7 @@
 
 ## Description
 
-**RememberBot** This is an asynchron bot written in Python 3.10. And I'm also use aiogram dev-3.x, asyncio and aiomysql
+**RememberBot** This is an asynchron bot written in Python 3.10. And I'm also use aiogram dev-3.x, asyncio, openai and aiomysql
 
 ## Functions
 
@@ -13,6 +13,10 @@
 **Generating random tasks and dates.**
 
 **Show and notifications user tasks.**
+
+**View the horoscope.**
+
+**A conversation with artificial intelligence**
 
 # You can get acquainted with text functions on ([RememberBot](https://t.me/FirstLeeObot))
 
@@ -24,4 +28,8 @@
 
 * Python 3.10
 
-* asiogram
+* aiogram3
+
+* AsyncIOScheduler
+
+* openai

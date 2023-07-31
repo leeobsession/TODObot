@@ -18,35 +18,34 @@ router = Router()
 
 class StartForm(StatesGroup):
     name = State() 
-
+    gpt_call = State()
 
 @router.message(Command(commands=["start"]))
-async def cmd_start(message: Message, bot: Bot, state: FSMContext, apscheduler: AsyncIOScheduler)-> None:
+async def cmd_start(message: Message, bot: Bot, state: FSMContext)-> None:
     chat_id = message.chat.id
     users = await get_id(chat_id)
     if chat_id == users:
         name_user = await get_name(chat_id)
         await message.answer(f'Приятно снова тебя увидеть {name_user} \U0001F970!', reply_markup=start_bot())
-        apscheduler.add_job(check_and_call, trigger='cron', hour=2, minute=55, day='*',  kwargs={'bot': bot, 'user_id': message.chat.id})
     else:
         await message.answer("Привет! Давай познакомимся! Напиши пожалуйста мне свое имя, что бы я мог тебя запомнить! \U0001F63B")
         await state.set_state(StartForm.name)
-    
 
 
 @router.message(StartForm.name)
-async def process_name(message: Message, bot: Bot, state: FSMContext, apscheduler: AsyncIOScheduler) -> None:
+async def process_name(message: Message, bot: Bot, state: FSMContext) -> None:
     chat_id = message.chat.id
     name = message.text
     await save_user(chat_id, name)
     await state.update_data(text=name)
-    await message.answer(f'Приятно познакомится {name} \U00002764! Теперь можешь добавить задачу, и я ее тоже запомню! :3', reply_markup=start_bot())    
+    await message.answer(f'Приятно познакомится {name} \U00002764! Я могу запомнить и сохранить твои задачи, рассказать гороскоп на сегодня или ты можешь написать в чат, что бы позвать умного помощника Тошу :3', reply_markup=start_bot())    
     await state.clear()
-    apscheduler.add_job(check_and_call, trigger='cron', hour=1, minute=5, day='*',  kwargs={'bot': bot, 'chat_id': message.chat.id})
+    await state.set_state(Form.gpt_call)
 
 @router.message(Command(commands=["main_menu"]))
 async def cmd_menu(message: Message, bot: Bot, state: FSMContext)-> None:
     await message.answer("Чем займемся?", reply_markup=start_bot())
+
 
 @router.message(F.text=="Вернуться в меню")
 async def back(message: Message, state: FSMContext) -> None:

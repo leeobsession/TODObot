@@ -4,11 +4,10 @@ from conf.bd import conn
 
 
 async def list_id():
-    sql = "SELECT user_id FROM users"
-    val = (date, id_message)
+    sql = "SELECT id_messag FROM users"
     cur = await conn()
     async with cur.cursor() as cursor:
-        await cursor.execute(sql, val)
+        await cursor.execute(sql)
         result = await cursor.fetchall()
     cur.close()
     lst = []

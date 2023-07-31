@@ -14,8 +14,8 @@ class Settings:
 
 
 def get_settings():
-    config = get_variables('/home/lee_obsession/TODObot/scripts/conf/.evn')
-
+    config = get_variables('/home/leeobsession/.poetry.venv/TODObot/scripts/conf/.evn')
+    #config = get_variables('/home/lee_obsession/TODObot/scripts/conf/.evn')
     return Settings(
         bots=Bots(
             bot_token=config['TOKEN'],

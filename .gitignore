@@ -5,3 +5,7 @@ __pycache__
 bd.py
 requirements.txt
 bot.log
+dict_for_gpt.py
+sheduler.log
+poetry.lock
+/voice_files
